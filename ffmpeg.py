@@ -3,7 +3,7 @@
 """
 Created on Mon Jan 13 11:02:34 2020
 
-@author: iancombs
+@author: Ian Combs and Ryan Eckert aka the Beef Boys
 """
 import os, argparse, re
 
@@ -17,7 +17,7 @@ t = args.t
 
 path = os.getcwd()
 
-for fileName in [fileName for fileName in os.listdir(path)]:
+for fileName in [fileName for fileName in os.listdir(path) if fileName.endswith(t)]:
     root, ext = os.path.splitext(fileName)
     if fileName.endswith(t):
         os.system("ffmpeg -i "+root+ext+" -vf fps="+f+" "+root+".%d.png")
